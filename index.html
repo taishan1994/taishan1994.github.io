@@ -1,11 +1,153 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>My Homepage</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Resume</title>
+  <style>
+    :root {
+      --bg: #f4f6f8;
+      --fg: #333;
+      --primary: #007acc;
+      --card-bg: #fff;
+      --shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1e1e1e;
+        --fg: #ddd;
+        --card-bg: #2a2a2a;
+        --shadow: 0 4px 10px rgba(0,0,0,0.6);
+      }
+    }
+    body {
+      margin: 0; font-family: "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--fg);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      box-shadow: var(--shadow);
+    }
+    header h1 { margin: 15px 0 5px; }
+    header p { color: var(--primary); font-weight: bold; }
+    section {
+      background: var(--card-bg);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+    h2 {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .skills span {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 6px;
+      margin: 5px;
+      font-size: 0.9em;
+    }
+    .timeline {
+      list-style: none; padding: 0;
+    }
+    .timeline li {
+      margin-bottom: 15px;
+    }
+    .timeline strong {
+      color: var(--primary);
+    }
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, this is my GitHub homepage!</h1>
-  <p>Welcome to my site.</p>
+  <div class="container">
+    <header>
+      <img src="https://via.placeholder.com/120" alt="Profile Photo">
+      <h1>Your Name</h1>
+      <p>Software Engineer | AI Researcher</p>
+      <p>📧 your.email@example.com | 🌐 yourwebsite.com | 📞 +86 123-4567-890</p>
+    </header>
+
+    <section>
+      <h2>About Me</h2>
+      <p>Passionate developer with expertise in AI, full-stack engineering, and cloud deployment. 
+         Love solving challenging problems and building impactful applications.</p>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="skills">
+        <span>Python</span><span>PyTorch</span><span>CUDA</span>
+        <span>Docker</span><span>PostgreSQL</span><span>FastAPI</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ul class="timeline">
+        <li>
+          <strong>Senior Engineer</strong> - Tech Company (2021 - Present)<br/>
+          Led AI model deployment on distributed GPUs; optimized training pipeline with quantization and custom kernels.
+        </li>
+        <li>
+          <strong>Software Engineer</strong> - Startup (2018 - 2021)<br/>
+          Built scalable news recommendation system using BM25, vector search, and personalized ranking.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul class="timeline">
+        <li>
+          <strong>Master in Computer Science</strong> - Tsinghua University (2016 - 2018)
+        </li>
+        <li>
+          <strong>Bachelor in Software Engineering</strong> - Zhejiang University (2012 - 2016)
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <ul class="timeline">
+        <li>
+          <strong>LLM Quantization Framework</strong><br/>
+          Developed workflow-based system for large model quantization, deployment, and evaluation.
+        </li>
+        <li>
+          <strong>News Recommendation Platform</strong><br/>
+          Built interactive dashboard with Reflex + PostgreSQL, supporting personalized news ranking.
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      © 2025 Your Name. Built with ❤️ on <a href="https://pages.github.com/">GitHub Pages</a>
+    </footer>
+  </div>
 </body>
 </html>
