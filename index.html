@@ -1,153 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Resume</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Futuristic Resume</title>
   <style>
-    :root {
-      --bg: #f4f6f8;
-      --fg: #333;
-      --primary: #007acc;
-      --card-bg: #fff;
-      --shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #1e1e1e;
-        --fg: #ddd;
-        --card-bg: #2a2a2a;
-        --shadow: 0 4px 10px rgba(0,0,0,0.6);
-      }
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap');
+
     body {
-      margin: 0; font-family: "Segoe UI", sans-serif;
-      background: var(--bg); color: var(--fg);
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0a0f1c;
+      color: #e0e0e0;
     }
+
     .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
+      width: 80%;
+      margin: 50px auto;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
     }
-    header {
+
+    .card {
+      background: rgba(20, 25, 40, 0.9);
+      border: 1px solid rgba(0, 200, 255, 0.3);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.6);
+    }
+
+    .profile {
       text-align: center;
-      margin-bottom: 40px;
     }
-    header img {
-      width: 120px; height: 120px;
+
+    .profile img {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      box-shadow: var(--shadow);
-    }
-    header h1 { margin: 15px 0 5px; }
-    header p { color: var(--primary); font-weight: bold; }
-    section {
-      background: var(--card-bg);
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-    }
-    h2 {
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 5px;
+      border: 2px solid cyan;
       margin-bottom: 15px;
     }
+
+    h1, h2 {
+      color: cyan;
+      text-shadow: 0 0 10px cyan;
+    }
+
     .skills span {
       display: inline-block;
-      background: var(--primary);
-      color: #fff;
+      background: linear-gradient(90deg, cyan, magenta);
       padding: 5px 10px;
-      border-radius: 6px;
+      border-radius: 10px;
       margin: 5px;
-      font-size: 0.9em;
+      color: #fff;
+      font-size: 14px;
     }
+
     .timeline {
-      list-style: none; padding: 0;
+      border-left: 2px solid cyan;
+      padding-left: 15px;
     }
-    .timeline li {
-      margin-bottom: 15px;
+
+    .timeline div {
+      margin-bottom: 20px;
     }
-    .timeline strong {
-      color: var(--primary);
+
+    .timeline h3 {
+      margin: 0;
+      color: #00ffe0;
     }
+
+    .timeline p {
+      margin: 3px 0;
+      font-size: 14px;
+      color: #bbb;
+    }
+
     footer {
       text-align: center;
-      margin-top: 30px;
-      font-size: 0.9em;
-    }
-    a {
-      color: var(--primary);
-      text-decoration: none;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <img src="https://via.placeholder.com/120" alt="Profile Photo">
-      <h1>Your Name</h1>
-      <p>Software Engineer | AI Researcher</p>
-      <p>📧 your.email@example.com | 🌐 yourwebsite.com | 📞 +86 123-4567-890</p>
-    </header>
-
-    <section>
-      <h2>About Me</h2>
-      <p>Passionate developer with expertise in AI, full-stack engineering, and cloud deployment. 
-         Love solving challenging problems and building impactful applications.</p>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <span>Python</span><span>PyTorch</span><span>CUDA</span>
-        <span>Docker</span><span>PostgreSQL</span><span>FastAPI</span>
+    <!-- 左侧个人信息 -->
+    <div>
+      <div class="card profile">
+        <img src="https://via.placeholder.com/120" alt="Profile Photo">
+        <h1>Your Name</h1>
+        <p>AI Engineer | Data Scientist | Developer</p>
       </div>
-    </section>
 
-    <section>
-      <h2>Experience</h2>
-      <ul class="timeline">
-        <li>
-          <strong>Senior Engineer</strong> - Tech Company (2021 - Present)<br/>
-          Led AI model deployment on distributed GPUs; optimized training pipeline with quantization and custom kernels.
-        </li>
-        <li>
-          <strong>Software Engineer</strong> - Startup (2018 - 2021)<br/>
-          Built scalable news recommendation system using BM25, vector search, and personalized ranking.
-        </li>
-      </ul>
-    </section>
+      <div class="card">
+        <h2>Contact</h2>
+        <p>📧 your@email.com</p>
+        <p>📱 +123 456 789</p>
+        <p>🌐 yourwebsite.com</p>
+        <p>💻 github.com/yourname</p>
+      </div>
 
-    <section>
-      <h2>Education</h2>
-      <ul class="timeline">
-        <li>
-          <strong>Master in Computer Science</strong> - Tsinghua University (2016 - 2018)
-        </li>
-        <li>
-          <strong>Bachelor in Software Engineering</strong> - Zhejiang University (2012 - 2016)
-        </li>
-      </ul>
-    </section>
+      <div class="card skills">
+        <h2>Skills</h2>
+        <span>Python</span>
+        <span>PyTorch</span>
+        <span>CUDA</span>
+        <span>Deep Learning</span>
+        <span>Docker</span>
+        <span>PostgreSQL</span>
+      </div>
+    </div>
 
-    <section>
-      <h2>Projects</h2>
-      <ul class="timeline">
-        <li>
-          <strong>LLM Quantization Framework</strong><br/>
-          Developed workflow-based system for large model quantization, deployment, and evaluation.
-        </li>
-        <li>
-          <strong>News Recommendation Platform</strong><br/>
-          Built interactive dashboard with Reflex + PostgreSQL, supporting personalized news ranking.
-        </li>
-      </ul>
-    </section>
+    <!-- 右侧经历 -->
+    <div>
+      <div class="card">
+        <h2>Experience</h2>
+        <div class="timeline">
+          <div>
+            <h3>Senior AI Engineer @ SSXX</h3>
+            <p>2023 - Present</p>
+            <p>• Research and deploy large-scale LLM quantization</p>
+            <p>• Build end-to-end workflow for AI inference</p>
+          </div>
+          <div>
+            <h3>Machine Learning Engineer @ ABC Tech</h3>
+            <p>2021 - 2023</p>
+            <p>• Developed recommender system with BM25 + Faiss</p>
+            <p>• Optimized PyTorch DataLoader for big data</p>
+          </div>
+        </div>
+      </div>
 
-    <footer>
-      © 2025 Your Name. Built with ❤️ on <a href="https://pages.github.com/">GitHub Pages</a>
-    </footer>
+      <div class="card">
+        <h2>Projects</h2>
+        <div class="timeline">
+          <div>
+            <h3>News Recommendation Platform</h3>
+            <p>Designed full-stack news retrieval system with PostgreSQL + BM25 + embeddings</p>
+          </div>
+          <div>
+            <h3>Quantization Framework</h3>
+            <p>Implemented FlatQuant and GPTQ-based modules for Qwen models</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <footer>
+    © 2025 Your Name | Futuristic Resume
+  </footer>
 </body>
 </html>
