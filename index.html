@@ -11,23 +11,26 @@
       font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft YaHei", sans-serif;
       background: #0a0f1c;
       color: #e0e0e0;
+      line-height: 1.6;
     }
 
     .container {
-      width: 80%;
-      margin: 50px auto;
+      width: 90%;
+      max-width: 1200px;
+      margin: 30px auto;
       display: grid;
       grid-template-columns: 1fr 2fr;
-      gap: 20px;
+      gap: 30px;
     }
 
     .card {
       background: rgba(20, 25, 40, 0.9);
       border: 1px solid rgba(0, 200, 255, 0.3);
       border-radius: 15px;
-      padding: 20px;
+      padding: 25px;
       box-shadow: 0 0 20px rgba(0, 200, 255, 0.3);
       transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 25px;
     }
 
     .card:hover {
@@ -40,53 +43,174 @@
     }
 
     .profile img {
-      width: 120px;
-      height: 120px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      border: 2px solid cyan;
-      margin-bottom: 15px;
+      border: 3px solid cyan;
+      margin-bottom: 20px;
+      object-fit: cover;
     }
 
-    h1, h2 {
+    h1 {
+      color: cyan;
+      text-shadow: 0 0 12px cyan;
+      margin: 15px 0 10px 0;
+      font-size: 1.8rem;
+    }
+
+    h2 {
       color: cyan;
       text-shadow: 0 0 8px cyan;
+      margin: 0 0 20px 0;
+      border-bottom: 2px solid rgba(0, 200, 255, 0.3);
+      padding-bottom: 8px;
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      margin: 0 0 10px 0;
+      color: #00ffe0;
+      font-size: 1.1rem;
+    }
+
+    .subtitle {
+      color: #00d0ff;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .skills span {
       display: inline-block;
       background: linear-gradient(90deg, cyan, magenta);
-      padding: 5px 12px;
-      border-radius: 12px;
-      margin: 5px;
+      padding: 6px 14px;
+      border-radius: 16px;
+      margin: 4px 0;
       color: #fff;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0, 200, 255, 0.3);
     }
 
     .timeline {
       border-left: 2px solid cyan;
-      padding-left: 15px;
+      padding-left: 20px;
+      position: relative;
     }
 
-    .timeline div {
-      margin-bottom: 20px;
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      background: #0a0f1c;
+      border: 2px solid cyan;
+      border-radius: 50%;
     }
 
-    .timeline h3 {
-      margin: 0;
+    .timeline-item {
+      margin-bottom: 25px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -27px;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      background: cyan;
+      border-radius: 50%;
+      box-shadow: 0 0 10px cyan;
+    }
+
+    .timeline-date {
       color: #00ffe0;
+      font-weight: 500;
+      margin-bottom: 5px;
+      font-size: 0.95rem;
     }
 
     .timeline p {
-      margin: 3px 0;
-      font-size: 14px;
-      color: #bbb;
+      margin: 8px 0;
+      font-size: 0.95rem;
+      color: #e0e0e0;
     }
 
-    footer {
+    .project-section {
+      margin-bottom: 20px;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-title i {
+      color: cyan;
+    }
+
+    .project-meta {
+      background: rgba(0, 200, 255, 0.1);
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin: 10px 0;
+      font-size: 0.9rem;
+    }
+
+    .project-meta strong {
+      color: #00d0ff;
+    }
+
+    .project-details {
+      padding-left: 10px;
+      border-left: 2px dashed rgba(0, 200, 255, 0.3);
+    }
+
+    .project-details p {
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .contact-info i {
+      color: cyan;
+      min-width: 20px;
+    }
+
+    .footer {
       text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.9rem;
       color: #666;
+      border-top: 1px solid rgba(0, 200, 255, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        width: 95%;
+        margin: 15px auto;
+      }
+      
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -95,68 +219,200 @@
     <!-- 左侧个人信息 -->
     <div>
       <div class="card profile">
-        <img src="https://via.placeholder.com/120" alt="头像">
-        <h1>张三</h1>
-        <p>AI工程师 | 数据科学家 | 开发者</p>
+        <div class="profile">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=developer" alt="个人头像">
+              <h1>龚鸥波</h1>
+              <p>大模型算法工程师</p>
+            </div>
+
+        <h2>联系方式</h2>
+        <div class="contact-info">
+          <i>✉️</i>
+          <span>461600371@email.com</span>
+        </div>
+        <div class="contact-info">
+          <i>💬</i>
+          <span>微信：15926459981</span>
+        </div>
       </div>
 
       <div class="card">
-        <h2>联系方式</h2>
-        <p>📧 your@email.com</p>
-        <p>📱 123-456-7890</p>
-        <p>🌐 www.yourwebsite.com</p>
-        <p>💻 github.com/yourname</p>
-      </div>
-
-      <div class="card skills">
-        <h2>技能</h2>
-        <span>Python</span>
-        <span>PyTorch</span>
-        <span>CUDA</span>
-        <span>深度学习</span>
-        <span>Docker</span>
-        <span>PostgreSQL</span>
+        <h2>核心技能</h2>
+        <div class="skills">
+          <span>Python</span>
+          <span>PyTorch</span>
+          <span>CUDA</span>
+          <span>深度学习</span>
+          <span>Docker</span>
+          <span>PostgreSQL</span>
+          <span>Embedding</span>
+          <span>VLLM</span>
+          <span>SGLang</span>
+          <span>文本分类</span>
+          <span>命名实体识别</span>
+          <span>SFT</span>
+          <span>DPO</span>
+          <span>垂域大模型</span>
+          <span>模型量化</span>
+          <span>向量检索</span>
+          <span>RAG</span>
+          <span>全栈开发</span>
+        </div>
       </div>
     </div>
 
     <!-- 右侧经历 -->
     <div>
       <div class="card">
+        <h2>教育经历</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2017-2020</div>
+            <h3>硕士 - 软件工程</h3>
+            <p>武汉理工大学</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2014-2017</div>
+            <h3>本科 - 软件工程</h3>
+            <p>武汉理工大学</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
         <h2>工作经历</h2>
         <div class="timeline">
-          <div>
-            <h3>高级AI工程师 @ SSXX</h3>
-            <p>2023 - 至今</p>
-            <p>• 研究与部署大规模LLM量化</p>
-            <p>• 构建端到端AI推理工作流</p>
+          <div class="timeline-item">
+            <div class="timeline-date">2023-至今</div>
+            <h3>大模型算法工程师</h3>
+            <p>深圳云天励飞技术股份有限公司</p>
           </div>
-          <div>
-            <h3>机器学习工程师 @ ABC科技</h3>
-            <p>2021 - 2023</p>
-            <p>• 开发 BM25 + Faiss 的推荐系统</p>
-            <p>• 优化大规模数据的 PyTorch DataLoader</p>
+          <div class="timeline-item">
+            <div class="timeline-date">2022-2023</div>
+            <h3>NLP算法工程师</h3>
+            <p>深圳赋乐科技集团有限公司</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">2020-2022</div>
+            <h3>NLP算法工程师</h3>
+            <p>中兴-南京中新赛克科技有限责任公司</p>
           </div>
         </div>
       </div>
 
       <div class="card">
         <h2>项目经验</h2>
-        <div class="timeline">
-          <div>
-            <h3>新闻推荐平台</h3>
-            <p>构建基于 PostgreSQL + BM25 + 向量搜索的全栈资讯检索平台</p>
+        
+        <!-- 项目1 -->
+        <div class="project-section">
+          <h3 class="project-title">
+            <i>🚀</i> 天书大模型
+          </h3>
+          <div class="project-meta">
+            <strong>项目背景：</strong>负责天书大模型的SFT，赋能垂域大模型。包括数据的预处理、模型的训练以及部署、评测的整个生命周期。<br>
+            <strong>项目技术：</strong>pytorch、megatron-lm、text-inference-generation、llm-bench、sft、fasttext
           </div>
-          <div>
-            <h3>模型量化框架</h3>
-            <p>实现 FlatQuant 和 GPTQ 模块，应用于 Qwen 系列大模型</p>
+          <div class="project-details">
+            <p><strong>数据阶段：</strong></p>
+            <p>• 预训练数据过滤：训练fasttext质量过滤模型以及基于n-gram的模型过滤掉质量较低的预训练语料</p>
+            <p>• 微调数据处理：收集整理开源SFT语料，进行ppl过滤、规则过滤、去重等操作；针对垂域数据（公文写作、扩改润续缩等），蒸馏ChatGPT数据并从书籍中抽取高质量语料</p>
+            
+            <p><strong>模型训练：</strong></p>
+            <p>• 采用megatron-lm作为基本训练框架，进行多机多卡训练</p>
+            <p>• 第一阶段使用通用SFT数据预训练，第二阶段采用通用数据和垂域数据7:3混合训练得到垂域大模型</p>
+            <p>• 对于多轮对话数据，只训练answer部分以加速训练</p>
+            
+            <p><strong>模型部署与评测：</strong></p>
+            <p>• 使用TGI作为部署框架，与华为合作部署到910B服务器</p>
+            <p>• 在ceval、cmmlu等外部榜单及内部Llm-bench上进行评测，垂域任务构建测试集进行人工评测</p>
+            
+            <p><strong>项目成果：</strong>天书大模型在ceval、cmmlu上取得当时第一名的成绩；政务大模型达到和讯飞、百度等大模型的水平；法律大模型在lawbench上超过文心、GLM等模型</p>
+          </div>
+        </div>
+        
+        <!-- 项目2 -->
+        <div class="project-section">
+          <h3 class="project-title">
+            <i>🤖</i> 工单智能助手
+          </h3>
+          <div class="project-meta">
+            <strong>项目背景：</strong>针对业务工单数据进行智能化处理，包含工单自动分拨、群体事件识别、重复事件识别、工单自动纠错、工单内容总结、工单问答助手等。<br>
+            <strong>项目技术：</strong>python、docker、BGE-embedding、FlgEmbedding、中文文本纠错、T5、Qwen2.5、RAG
+          </div>
+          <div class="project-details">
+            <p><strong>工单自动分拨：</strong>将用户提交的工单分为1300+类别，采用多模型召回计数构建正负样本，使用动态融合方法（embedding直接分类、历史数据推荐分类、最近工单推荐分类），根据类别频率排序，最终分拨top3准确率达到85%以上</p>
+            
+            <p><strong>事件识别系统：</strong>采用Qwen2.5模型使用llama-factory进行SFT得到实体识别模型，结合DPO模型结果融合进行实体抽取，根据实体聚合新闻并判断事件相关性，在PK中取得两项第一的成绩</p>
+            
+            <p><strong>工单文本纠错：</strong>采用T5作为纠错模型，收集整理开源CSC、CGEC数据并利用规则生成纠错数据，预训练后使用高质量数据微调，在ECSPell榜单取得第一成绩，CGEC与Sota持平</p>
+            
+            <p><strong>工单内容总结与问答：</strong>采用天书大模型结合COT进行工单内容总结；对文档进行解析、提取问答对和分块，转换为embedding存储，实现检索增强问答</p>
+          </div>
+        </div>
+        
+        <!-- 项目3 -->
+        <div class="project-section">
+          <h3 class="project-title">
+            <i>⚡</i> 量化LLM以加速推理
+          </h3>
+          <div class="project-meta">
+            <strong>项目背景：</strong>根据芯片需求，对不同LLM及VLM进行量化，测试量化后的推理效率及模型精度。<br>
+            <strong>项目技术：</strong>gptq、awq、smoothquant、quarot、qwen3、deepseek-r1、工作流、sglang、vllm
+          </div>
+          <div class="project-details">
+            <p><strong>模型量化：</strong></p>
+            <p>• 使用w4a16、w8a8、w4a16量化Qwen3系列模型，采用quarot-gptq方案在w8a8上基本无损</p>
+            <p>• 对于w4a8，结合quarot在线旋转方法；对于小模型，使用混合精度量化缩小与bf16模型的精度差距</p>
+            <p>• 对deepseek-r1使用w4a8量化结合quarot，基本无损；解决fp16推理时最后一层Moe层溢出问题</p>
+            
+            <p><strong>优化与创新：</strong></p>
+            <p>• 基于qwen2使用w8a8结合kv-cache per token per head量化，精度损失控制在1%以内</p>
+            <p>• 构建量化工作流，实现从量化、部署、评测的端到端流程，提高量化效率</p>
+            <p>• 量化qwen2.5-vl-7B全格式模型，修改vllm以支持同时对llm和vit部分的量化推理</p>
+          </div>
+        </div>
+        
+        <!-- 项目4 -->
+        <div class="project-section">
+          <h3 class="project-title">
+            <i>🔍</i> 结合LLM与CN-CLIP的语义搜索
+          </h3>
+          <div class="project-meta">
+            <strong>项目背景：</strong>针对监控场景下的以文搜图任务，包括文搜人、文搜车等。<br>
+            <strong>项目技术：</strong>openclip、transformers、cn-clip、llm2clip、vit、llama
+          </div>
+          <div class="project-details">
+            <p>• 基于cnclip使用openclip进行图文检索训练，收集整理图文预训练数据并转换为webdataset</p>
+            <p>• 对垂域图片使用Qwen2.5-72B-VL进行标注，结合embedding去重</p>
+            <p>• 训练采用LIT形式，冻结视觉编码器，只训练文本部分；人工标注正负样本，使用consent-loss训练提升垂域能力</p>
+            <p>• 基于LLM2CLIP语言基座与cnlip视觉基座，冻结语言基座，只训练视觉及projector部分</p>
+            <p>• 采用在线学习方法，用户标注少量数据即可提升标签效果；利用否定逻辑工作流，提升模型在否定词语上的泛化性</p>
+          </div>
+        </div>
+        
+        <!-- 项目5 -->
+        <div class="project-section">
+          <h3 class="project-title">
+            <i>📰</i> 智慧头条
+          </h3>
+          <div class="project-meta">
+            <strong>项目背景：</strong>针对芯片及大模型相关新闻，构建内部头条资讯系统，为业务和科研人员提供行业前沿信息。<br>
+            <strong>项目技术：</strong>postgres、Qwen3-Embedding、Qwen3-30B-A3B、bm25、个性化推荐、vllm
+          </div>
+          <div class="project-details">
+            <p>• 对爬取的新闻进行标准化处理：使用大模型分类过滤非科技类新闻、多新闻杂糅内容、标题文本不匹配内容</p>
+            <p>• 对新闻进行文本摘要、向量化处理、关键词提取，并存储至数据库</p>
+            <p>• 推荐系统：基于用户选择主题进行冷启动（联合bm25、关键词命中数、向量检索进行加权求和）</p>
+            <p>• 个性化推荐：收集用户收藏、点赞、浏览时长、搜索历史等行为数据，获取对应新闻向量进行平均计算</p>
+            <p>• 构建前端可视化页面，存储每日推荐结果进行分析，优化推荐效果</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <footer>
-    © 2025 张三 | 科技感简历
+  <footer class="footer">
+    © 2025 龚鸥波 | 科技感简历 | AI工程师 | 数据科学家 | 全栈开发者
   </footer>
 </body>
 </html>
