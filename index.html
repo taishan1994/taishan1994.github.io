@@ -361,9 +361,9 @@
           </div>
           <div class="project-details">
             <p><strong>模型量化：</strong></p>
-            <p>• 使用w4a16、w8a8、w4a16量化Qwen3系列模型，采用quarot-gptq方案在w8a8上基本无损</p>
+            <p>• 使用w4a8、w8a8、w4a16量化Qwen3系列模型，采用quarot-gptq方案在w8a8上基本无损</p>
             <p>• 对于w4a8，结合quarot在线旋转方法；对于小模型，使用混合精度量化缩小与bf16模型的精度差距</p>
-            <p>• 对deepseek-r1使用w4a8量化结合quarot，基本无损；解决fp16推理时最后一层Moe层溢出问题</p>
+            <p>• 对deepseek-r1使用w4a8量化结合quarot，基本无损；解决deepseek-r1以fp16推理时最后一层Moe层溢出问题：缩放scale或者将其转换为bf16进行运算。</p>
             
             <p><strong>优化与创新：</strong></p>
             <p>• 基于qwen2使用w8a8结合kv-cache per token per head量化，精度损失控制在1%以内</p>
@@ -382,10 +382,10 @@
             <strong>项目技术：</strong>openclip、transformers、cn-clip、llm2clip、vit、llama
           </div>
           <div class="project-details">
-            <p>• 基于cnclip使用openclip进行图文检索训练，收集整理图文预训练数据并转换为webdataset</p>
+            <p>• 基于cnclip使用openclip进行图文检索多机多卡训练，收集整理图文预训练数据并转换为webdataset</p>
             <p>• 对垂域图片使用Qwen2.5-72B-VL进行标注，结合embedding去重</p>
             <p>• 训练采用LIT形式，冻结视觉编码器，只训练文本部分；人工标注正负样本，使用consent-loss训练提升垂域能力</p>
-            <p>• 基于LLM2CLIP语言基座与cnlip视觉基座，冻结语言基座，只训练视觉及projector部分</p>
+            <p>• 基于LLM2CLIP语言基座与cnlip视觉基座，冻结语言基座，只训练视觉及projector部分。batch内的负祥本解决第二阶段训练过拟合问题</p>
             <p>• 采用在线学习方法，用户标注少量数据即可提升标签效果；利用否定逻辑工作流，提升模型在否定词语上的泛化性</p>
           </div>
         </div>
@@ -403,8 +403,9 @@
             <p>• 对爬取的新闻进行标准化处理：使用大模型分类过滤非科技类新闻、多新闻杂糅内容、标题文本不匹配内容</p>
             <p>• 对新闻进行文本摘要、向量化处理、关键词提取，并存储至数据库</p>
             <p>• 推荐系统：基于用户选择主题进行冷启动（联合bm25、关键词命中数、向量检索进行加权求和）</p>
-            <p>• 个性化推荐：收集用户收藏、点赞、浏览时长、搜索历史等行为数据，获取对应新闻向量进行平均计算</p>
+            <p>• 个性化推荐：收集用户收藏、点赞、浏览时长、搜索历史等行为数据，获取对应新闻向量进行平均计算。另外将用户点踩的新闻加入个性化推荐，正向分数减去负向分数</p>
             <p>• 构建前端可视化页面，存储每日推荐结果进行分析，优化推荐效果</p>
+            <p>• 构建端到端的自动化评估测试，判断推荐的新闻是否是用户感兴趣的新闻（对推荐新闻进行分类并和用户标签进行比对）</p>
           </div>
         </div>
       </div>
